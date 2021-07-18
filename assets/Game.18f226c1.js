@@ -1,0 +1,1 @@
+import{o as e,b as o,w as r,r as t,e as a}from"./vendor.83efa345.js";const n={},s=a("開始遊戲");n.render=function(a,n){const f=t("router-link");return e(),o(f,{to:"/home"},{default:r((()=>[s])),_:1})};export default n;
