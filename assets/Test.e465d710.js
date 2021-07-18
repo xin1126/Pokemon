@@ -1,0 +1,1 @@
+import{o as t,b as r,f as e,F as o,r as a}from"./vendor.83efa345.js";const n={data:()=>({}),methods:{}},s=e("div",null,"我是新分頁tttttttttttttttt",-1);n.render=function(n,d,u,f,l,i){const c=a("router-view");return t(),r(o,null,[s,e(c)],64)};export default n;
