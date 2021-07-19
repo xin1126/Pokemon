@@ -1,0 +1,14 @@
+.view {
+  width: 1000px;
+  height: 500px;
+  background-image: url('@/assets/images/ground.jpg');
+}
+
+.mountain-wall {
+  height: 132px;
+  background-image: url('@/assets/images/wall.jpg');
+  img {
+    width: 130px;
+    height: 99px;
+  }
+}
