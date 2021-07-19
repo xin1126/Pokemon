@@ -1,1 +1,0 @@
-import{o as e,b as o,w as r,r as t,e as a}from"./vendor.2524a82e.js";const n={},s=a("開始遊戲");n.render=function(a,n){const u=t("router-link");return e(),o(u,{to:"/home"},{default:r((()=>[s])),_:1})};export default n;
