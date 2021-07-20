@@ -12,6 +12,7 @@ export default () => {
     const modules = import.meta.globEager('/src/assets/images/*.png');
     url.value = modules[path].default;
   };
+
   const updateImg = (direction) => {
     if (item !== `${direction}3`) {
       setTimeout(() => {
@@ -33,7 +34,18 @@ export default () => {
     }, 150);
   };
 
-  const move = (e, protagonist) => {
+  const move = (e, protagonist, status) => {
+    let contact;
+    let target;
+    if (status.length === 1) {
+      contact = status[0].contact;
+      target = status[0].target;
+    } else {
+      contact = status[1].contact;
+      target = status[1].target;
+    }
+    const keyCode = e.keyCode || e.which || e.charCode;
+    const speed = e.ctrlKey && (keyCode === 37 || keyCode === 38 || keyCode === 39 || keyCode === 40) ? 12 : 6;
     const dom = protagonist.value;
     if (!dom) return;
     const w = dom.offsetLeft;
@@ -42,12 +54,14 @@ export default () => {
     const proceed3 = w > 780 && w < 835;
     switch (e.keyCode) {
       case 37:
-        dom.style.left = dom.offsetLeft < 0 ? dom.offsetLeft : `${dom.offsetLeft - 5}px`;
         updateImg('left');
+        if (contact && target === 'left') return;
+        dom.style.left = dom.offsetLeft < 0 ? dom.offsetLeft : `${dom.offsetLeft - speed}px`;
         break;
       case 38:
-        dom.style.top = !(proceed1 || proceed2 || proceed3) && dom.offsetTop < 115 ? dom.offsetTop : `${dom.offsetTop - 5}px`;
         updateImg('up');
+        if (contact && target === 'up') return;
+        dom.style.top = !(proceed1 || proceed2 || proceed3) && dom.offsetTop < 115 ? dom.offsetTop : `${dom.offsetTop - speed}px`;
         if (dom.offsetTop < 60) {
           if (route.path === '/') {
             if (proceed1) {
@@ -63,12 +77,14 @@ export default () => {
         }
         break;
       case 39:
-        dom.style.left = dom.offsetLeft >= 920 ? dom.offsetLeft : `${dom.offsetLeft + 5}px`;
         updateImg('right');
+        if (contact && target === 'right') return;
+        dom.style.left = dom.offsetLeft >= 920 ? dom.offsetLeft : `${dom.offsetLeft + speed}px`;
         break;
       case 40:
-        dom.style.top = dom.offsetTop >= 410 ? dom.offsetTop : `${dom.offsetTop + 5}px`;
         updateImg('down');
+        if (contact && target === 'down') return;
+        dom.style.top = dom.offsetTop >= 410 ? dom.offsetTop : `${dom.offsetTop + speed}px`;
         break;
       default:
         break;
