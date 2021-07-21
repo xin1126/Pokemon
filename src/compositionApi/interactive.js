@@ -13,10 +13,21 @@ export default (protagonist, billboard) => {
   contact = w >= 0 && h >= 0;
 
   if (contact) {
+    const arr = ['1', '2', '3'];
     const { src } = protagonist.value;
-    const updatedSrc = src.slice(0, src.length - 5);
-    const index = Array.from(updatedSrc).reverse().indexOf('/');
-    target = updatedSrc.substr(updatedSrc.length - index, index);
+    const imgSrc = Array.from(src).reverse();
+    imgSrc.splice(imgSrc.indexOf('/'));
+    const updatedSrc = imgSrc.reverse().join('');
+    let index;
+    arr.forEach((item) => {
+      const num = updatedSrc.indexOf(item);
+      if (num > 0) {
+        index = num;
+      }
+    });
+    const newSrc = Array.from(updatedSrc);
+    newSrc.splice(index);
+    target = newSrc.join('');
   }
 
   return { contact, target };
