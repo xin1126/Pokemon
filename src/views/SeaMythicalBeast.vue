@@ -1,13 +1,22 @@
 <template>
-  <div class="flex justify-center items-center h-screen w-screen">
+  <div class="flex justify-center items-center flex-col h-screen w-screen">
     <div class="view relative">
       <div class="mountain-wall flex items-end justify-center">
         <img class="" src="@/assets/images/proceed.jpg" alt="" />
       </div>
-      <img :src="url" class="absolute left-96 bottom-50" ref="protagonist" />
+      <img :src="url" class="absolute bottom-0 left-2/4" ref="protagonist" />
+      <div class="h-3/5 flex items-center justify-center">
+        <img src="@/assets/images/sea.png" ref="mythicalBeast" />
+      </div>
+    </div>
+    <div class="prompt bg-gray-500">
+      <ul class="text-white flex justify-center py-2">
+        <li class="pr-12">移動方式：←↑→↓(ctrl+箭頭增加跑速)</li>
+        <li class="pr-12">互動/確認：Z</li>
+        <li>離開/取消：X</li>
+      </ul>
     </div>
   </div>
-  <div ref="mythicalBeast">test</div>
 </template>
 
 <script>

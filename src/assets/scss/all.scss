@@ -12,3 +12,13 @@
     height: 99px;
   }
 }
+
+@font-face {
+  font-family: '404notfont-by-9527.tw';
+  src: url('@/assets/404notfont-by-9527.tw.woff2?2') format('woff2');
+  font-display: swap;
+}
+
+.text-lattice {
+  font-family: '404notfont-by-9527.tw', sans-serif !important;
+}

@@ -25,6 +25,7 @@ export default () => {
         getSr(item);
       }, 100);
     }
+    console.log(item);
   };
 
   const keyup = () => {
@@ -90,7 +91,6 @@ export default () => {
         break;
     }
   };
-
   return {
     url, getSr, move, keyup,
   };
